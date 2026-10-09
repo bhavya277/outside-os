@@ -1,0 +1,105 @@
+{
+  "meta": {
+    "id": "pack_small_space_gardening",
+    "name": "Small-Space Gardening",
+    "author": "OUTSIDE//OS Core Team & Hacktoberfest Contributors",
+    "version": "1.0.0",
+    "description": "Cultivating soil vitality, balcony containers, window boxes, and micro-gardens with minimal equipment.",
+    "theme": "Micro-Gardening & Container Vitality",
+    "difficulty_level": "gentle",
+    "safety_guidelines": [
+      "Always wash hands after touching garden compost or potting soil.",
+      "Never lean out over balcony railings or place unanchored pots where they could fall.",
+      "Check pots for stinging insects or spiders before reaching inside."
+    ],
+    "tags": ["gardening", "balcony", "soil", "propagation"]
+  },
+  "quests": [
+    {
+      "id": "quest_ssg_001",
+      "title": "Balcony Micro-Soil Health & Moisture Check",
+      "objective": "Audit soil texture, drainage, and root moisture across 2 to 3 outdoor containers or balcony pots.",
+      "suitability_reason": "Perfect for apartment dwellers or container gardeners with 15 minutes of outdoor balcony time.",
+      "duration_minutes": 15,
+      "difficulty": "gentle",
+      "energy_level": "low",
+      "environment": "balcony",
+      "required_equipment": [],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "Step out to your balcony, patio, or window sill planters.",
+          "detail": "Inspect container saucers: is there standing water or bone-dry sediment?"
+        },
+        {
+          "step_number": 2,
+          "instruction": "Insert your index finger 2 centimeters into the topsoil of each pot.",
+          "detail": "Assess whether moisture is cool and crumbly, muddy and waterlogged, or hard-packed and hydrophobic."
+        },
+        {
+          "step_number": 3,
+          "instruction": "Inspect the base of plant stems for soil compaction or salt crusting from tap water minerals.",
+          "detail": "Gently loosen compacted surface crust with a twig or finger without damaging surface feeder roots."
+        }
+      ],
+      "checklist": [
+        "Checked moisture depth of at least two pots",
+        "Inspected drainage holes for blockages or root bound escaping tips",
+        "Cleared away dried, decaying dead leaves from soil surface"
+      ],
+      "bonus_challenge": "Identify which planter receives the most hours of unobstructed daylight.",
+      "safe_alternative": "Check indoor potted plants or herbs on a kitchen windowsill using the same finger-depth moisture test.",
+      "completion_criteria": "Inspect and log the hydration state of at least one container.",
+      "reflection_question": "Did your soil feel cooler or warmer than the ambient outdoor air temperature?",
+      "safety_notes": [
+        "Do not overfill watering cans to avoid spilling water over balcony edges.",
+        "Ensure planters are securely fastened against wind gusts."
+      ],
+      "provenance": "quest_pack:small_space_gardening",
+      "created_at": "2026-10-01T00:00:00Z"
+    },
+    {
+      "id": "quest_ssg_002",
+      "title": "Seed Pod & Leaf Node Scout",
+      "objective": "Survey plants for reproductive growth: maturing seed heads, flowering nodes, or runners.",
+      "suitability_reason": "Learn how small-space flora propagates and prepares for future growth cycles.",
+      "duration_minutes": 20,
+      "difficulty": "gentle",
+      "energy_level": "balanced",
+      "environment": "garden",
+      "required_equipment": [],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "Carefully examine foliage stems from the soil line upward.",
+          "detail": "Look for axillary buds where leaves branch from main stems."
+        },
+        {
+          "step_number": 2,
+          "instruction": "Find one spent flower blossom or dried pod holding seeds.",
+          "detail": "Observe the protective shell: is it fuzzy, papery, prickly, or winged?"
+        },
+        {
+          "step_number": 3,
+          "instruction": "Check for natural symbiotic visitors (ladybugs, small bees, spiders).",
+          "detail": "Watch their interaction without disturbing them."
+        }
+      ],
+      "checklist": [
+        "Identified a leaf node where new growth or buds originate",
+        "Observed a seed capsule or flower structure up close",
+        "Noticed whether leaves point towards the sun's current angle"
+      ],
+      "bonus_challenge": "Collect one dry fallen seed pod to observe its internal chamber structure.",
+      "safe_alternative": "Examine a fresh fruit or vegetable in your kitchen (e.g. apple, bell pepper) and observe seed chamber geometry.",
+      "completion_criteria": "Spot at least one sign of active plant reproduction or new shoot development.",
+      "reflection_question": "How do the seed pods you observed use geometry to disperse seeds?",
+      "safety_notes": [
+        "Do not ingest unidentified seeds or berries.",
+        "Wash hands with soap and water after handling garden pods."
+      ],
+      "provenance": "quest_pack:small_space_gardening",
+      "created_at": "2026-10-01T00:00:00Z"
+    }
+  ]
+}

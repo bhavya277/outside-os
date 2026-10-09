@@ -1,0 +1,106 @@
+{
+  "meta": {
+    "id": "pack_urban_nature_explorer",
+    "name": "Urban Nature Explorer",
+    "author": "OUTSIDE//OS Core Team & Hacktoberfest Contributors",
+    "version": "1.0.0",
+    "description": "Discover resilient ecology flourishing within cities, pavement crevices, stone walls, and neighborhood alleyways.",
+    "theme": "Urban Ecology & Spontaneous Flora",
+    "difficulty_level": "gentle",
+    "safety_guidelines": [
+      "Stay strictly on designated public pedestrian walkways.",
+      "Never enter private easements or construction zones.",
+      "Do not step into bicycle lanes or street gutters without checking for traffic.",
+      "Do not touch sharp building debris, glass, or discarded waste."
+    ],
+    "tags": ["urban", "biodiversity", "plants", "street-ecology"]
+  },
+  "quests": [
+    {
+      "id": "quest_une_001",
+      "title": "Sidewalk Crack Flora Cartography",
+      "objective": "Catalog three species of resilient spontaneous plants thriving in pavement margins or brick seams.",
+      "suitability_reason": "Ideal for urban pedestrians with 15 minutes to spare. No park or forest required; any city sidewalk qualifies.",
+      "duration_minutes": 15,
+      "difficulty": "gentle",
+      "energy_level": "balanced",
+      "environment": "neighborhood",
+      "required_equipment": [],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "Step out onto your street and follow a pedestrian sidewalk for 20 paces.",
+          "detail": "Keep phone stored away; direct your gaze down to the seams between concrete flags."
+        },
+        {
+          "step_number": 2,
+          "instruction": "Find the first pioneer plant emerging from a crack or curb foundation.",
+          "detail": "Observe its root anchoring mechanism and leaf shape (e.g. dandelion rosette, plantain, or clover)."
+        },
+        {
+          "step_number": 3,
+          "instruction": "Locate two additional distinct specimens along your route without picking them.",
+          "detail": "Notice which one shows signs of vehicle exhaust resistance or foot-traffic tolerance."
+        }
+      ],
+      "checklist": [
+        "Identified a plant flourishing in an asphalt or concrete seam",
+        "Compared two distinct leaf geometries",
+        "Noticed moisture accumulation or micro-soil trapped in the crack"
+      ],
+      "bonus_challenge": "Spot an ant or tiny beetle using the crack as a travel corridor.",
+      "safe_alternative": "Observe street tree pits or window planter boxes from your doorstep or building foyer.",
+      "completion_criteria": "Find at least two surviving wild plants in human-made joints.",
+      "reflection_question": "What does the tenacity of these crack-dwelling plants reveal about nature in built environments?",
+      "safety_notes": [
+        "Never kneel or crouch directly in vehicle roadways or bike lanes.",
+        "Be aware of other pedestrians passing by."
+      ],
+      "provenance": "quest_pack:urban_nature_explorer",
+      "created_at": "2026-10-01T00:00:00Z"
+    },
+    {
+      "id": "quest_une_002",
+      "title": "Urban Lichen & Patina Reconnaissance",
+      "objective": "Identify colonies of crustose or foliose lichen colonizing stone, brick, or metal surfaces.",
+      "suitability_reason": "Air quality bio-indicators accessible in every neighborhood; requires only patient observation.",
+      "duration_minutes": 20,
+      "difficulty": "gentle",
+      "energy_level": "low",
+      "environment": "neighborhood",
+      "required_equipment": [],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "Inspect sunlit stone walls, concrete benches, or wooden posts in your neighborhood.",
+          "detail": "Look for circular, textured patches of yellow, mint green, or grey."
+        },
+        {
+          "step_number": 2,
+          "instruction": "Examine the boundary where lichen meets bare stone.",
+          "detail": "Observe the crust-like adherence without scraping or peeling the organism."
+        },
+        {
+          "step_number": 3,
+          "instruction": "Compare lichen on a sheltered northern exposure versus a southern sun-baked wall.",
+          "detail": "Notice differences in thickness and hue."
+        }
+      ],
+      "checklist": [
+        "Found at least one circular lichen colony on a hard surface",
+        "Noticed color variations between damp and dry sectors",
+        "Checked a wooden pole or stone wall for symbiotic growth"
+      ],
+      "bonus_challenge": "Estimate the diameter of the largest colony you observe.",
+      "safe_alternative": "Inspect exterior window masonry or patio tiles from an indoor vantage point.",
+      "completion_criteria": "Confirm the presence of one distinct lichen organism.",
+      "reflection_question": "How old do you imagine that slow-growing lichen colony might be?",
+      "safety_notes": [
+        "Do not scratch or remove lichens; they grow at rates of fractions of a millimeter per year.",
+        "Stay clear of active construction sites."
+      ],
+      "provenance": "quest_pack:urban_nature_explorer",
+      "created_at": "2026-10-01T00:00:00Z"
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "meta": {
+    "id": "pack_slow_walks_mindful",
+    "name": "Slow Walks and Mindful Observation",
+    "author": "OUTSIDE//OS Core Team & Hacktoberfest Contributors",
+    "version": "1.0.0",
+    "description": "De-accelerate screen fatigue through sensory grounding, auditory surveying, and micro-climatic awareness.",
+    "theme": "Mindfulness & Somatic Grounding",
+    "difficulty_level": "gentle",
+    "safety_guidelines": [
+      "Select quiet paths with minimal vehicular interference.",
+      "Never close your eyes while stepping across curbs or uneven grades.",
+      "Stay hydrated and dress appropriately for current wind chill or heat."
+    ],
+    "tags": ["mindfulness", "slow-walk", "sensory", "wellbeing"]
+  },
+  "quests": [
+    {
+      "id": "quest_swm_001",
+      "title": "The Decibel Horizon",
+      "objective": "Catalog the layering of sounds in your surroundings from immediate breath to distant horizons.",
+      "suitability_reason": "Relieves digital cognitive overload through auditory grounding in 15 quiet minutes.",
+      "duration_minutes": 15,
+      "difficulty": "gentle",
+      "energy_level": "low",
+      "environment": "park",
+      "required_equipment": [],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "Find a bench, low stone, or open grassy space and sit comfortably.",
+          "detail": "Rest your hands palms-up on your thighs and soften your gaze toward the ground."
+        },
+        {
+          "step_number": 2,
+          "instruction": "Listen for sounds within arms reach: your clothing rustling, your breathing, a nearby twig.",
+          "detail": "Spend one minute focused purely on the immediate sound circle."
+        },
+        {
+          "step_number": 3,
+          "instruction": "Expand your awareness to the middle distance: swaying treetops, footfalls, bird calls.",
+          "detail": "Count how many organic vs mechanical noises you distinguish."
+        },
+        {
+          "step_number": 4,
+          "instruction": "Reach for the farthest sonic horizon: distant trains, highway hum, wind gusts over ridgelines.",
+          "detail": "Notice how the auditory field never remains truly silent."
+        }
+      ],
+      "checklist": [
+        "Identified the quietest sound in your immediate perimeter",
+        "Distinguished at least one natural bird or insect frequency",
+        "Pinpointed a sound originating from beyond your visual horizon",
+        "Remained stationary for at least 7 minutes without checking notifications"
+      ],
+      "bonus_challenge": "Notice how your shoulders drop and neck tension eases as you listen.",
+      "safe_alternative": "Sit near an open window indoors and close your eyes for 5 minutes cataloging sounds.",
+      "completion_criteria": "Spend 10 minutes in sustained auditory awareness.",
+      "reflection_question": "Which distant sound carried the furthest, and did it feel calming or distracting?",
+      "safety_notes": [
+        "Maintain baseline awareness of public thoroughfares.",
+        "Choose daylight hours and well-populated public spaces."
+      ],
+      "provenance": "quest_pack:slow_walks_mindful",
+      "created_at": "2026-10-01T00:00:00Z"
+    },
+    {
+      "id": "quest_swm_002",
+      "title": "Thermal Micro-Climates",
+      "objective": "Detect three distinct changes in ambient temperature and air currents along a 200-meter route.",
+      "suitability_reason": "Engages physical skin sensation to re-connect neural pathways to outdoor reality.",
+      "duration_minutes": 20,
+      "difficulty": "gentle",
+      "energy_level": "balanced",
+      "environment": "neighborhood",
+      "required_equipment": [],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "Walk at half-speed along your chosen path with hands out of your pockets.",
+          "detail": "Expose the skin on your cheeks and hands to the ambient air."
+        },
+        {
+          "step_number": 2,
+          "instruction": "Step from direct sunlight into deep shade under an awning or tree canopy.",
+          "detail": "Notice the immediate sensory drop in radiant warmth."
+        },
+        {
+          "step_number": 3,
+          "instruction": "Locate a corridor where air moves faster (between buildings or trees).",
+          "detail": "Determine the direction the air current is moving by feeling it against your temples."
+        }
+      ],
+      "checklist": [
+        "Felt temperature contrast between direct sun and shade",
+        "Determined wind direction without looking at a weather app",
+        "Walked at a pace slower than ordinary pedestrian traffic"
+      ],
+      "bonus_challenge": "Touch a sun-warmed stone or wooden post and feel the thermal mass stored within it.",
+      "safe_alternative": "Open two opposite windows in your home and observe the cross-breeze across your face.",
+      "completion_criteria": "Notice and record two distinct micro-climatic zones.",
+      "reflection_question": "How did your physical body respond to moving between sun, wind, and shade?",
+      "safety_notes": [
+        "In cold weather, avoid hypothermia by dressing in layers.",
+        "In hot weather, seek shade and avoid midday peak UV exposure."
+      ],
+      "provenance": "quest_pack:slow_walks_mindful",
+      "created_at": "2026-10-01T00:00:00Z"
+    }
+  ]
+}
