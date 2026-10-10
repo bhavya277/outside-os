@@ -22,7 +22,7 @@ export const GeneratedQuestScreen: React.FC<GeneratedQuestProps> = ({
   const isFromAI = quest.provenance.startsWith('ollama:');
 
   return (
-    <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-10">
+    <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-10 pb-28 sm:pb-10">
       {/* Top provenance & action row */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#e2dac2] gap-3">
         <div className="flex flex-wrap items-center gap-2">
@@ -90,7 +90,7 @@ export const GeneratedQuestScreen: React.FC<GeneratedQuestProps> = ({
             </span>
           </div>
 
-          <h1 className="font-serif text-3xl sm:text-4xl font-bold text-[#0f241a] leading-tight tracking-tight">
+          <h1 className="font-serif text-2xl sm:text-4xl font-bold text-[#0f241a] leading-tight tracking-tight">
             {quest.title}
           </h1>
 
@@ -101,6 +101,27 @@ export const GeneratedQuestScreen: React.FC<GeneratedQuestProps> = ({
           <p className="mt-2 text-xs text-[#608269] bg-[#fbf9f3] p-3 rounded-xl border border-[#ede6d6]">
             <span className="font-semibold text-[#1b382b]">Why this suits you:</span> {quest.suitability_reason}
           </p>
+
+          {/* Quick Start Action on Mobile & Tablet */}
+          <div className="mt-5 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5">
+            <button
+              onClick={onAccept}
+              className="flex-1 py-3 px-5 rounded-xl bg-[#1b382b] text-[#fbf9f3] text-sm font-semibold hover:bg-[#284d3d] active:scale-[0.98] transition-all shadow-sm flex items-center justify-center gap-2 group min-h-[46px]"
+              id="quest-accept-quick-btn"
+            >
+              <Compass className="w-4 h-4 text-[#dfd4be] group-hover:rotate-45 transition-transform" />
+              <span>Accept & Start Expedition</span>
+              <ArrowRight className="w-4 h-4 text-[#c86432]" />
+            </button>
+            <button
+              onClick={onRegenerate}
+              className="py-3 px-4 rounded-xl border border-[#dfd4be] bg-white text-[#1b382b] hover:bg-[#ede6d6] active:scale-[0.98] text-xs font-semibold flex items-center justify-center gap-2 transition-colors min-h-[46px]"
+              id="quest-quick-reroll-btn"
+            >
+              <RotateCw className="w-3.5 h-3.5 text-[#608269]" />
+              <span>Reroll Quest</span>
+            </button>
+          </div>
         </div>
 
         {/* Action Steps */}
@@ -201,6 +222,20 @@ export const GeneratedQuestScreen: React.FC<GeneratedQuestProps> = ({
             The app will transition into minimal Pocket Mode. No screen monitoring needed.
           </p>
         </div>
+      </div>
+
+      {/* Sticky Mobile Accept Bar (< sm) */}
+      <div className="fixed bottom-16 inset-x-0 p-3 bg-[#fbf9f3]/95 backdrop-blur-md border-t border-[#dfd4be] sm:hidden z-30 shadow-[0_-4px_16px_rgba(0,0,0,0.06)] pb-[calc(0.75rem+env(safe-area-inset-bottom,0px))]">
+        <button
+          type="button"
+          onClick={onAccept}
+          className="w-full py-3.5 px-4 rounded-xl bg-[#1b382b] text-[#fbf9f3] text-sm font-semibold hover:bg-[#284d3d] active:scale-[0.98] transition-all shadow-md flex items-center justify-center gap-2.5 min-h-[48px]"
+          id="quest-mobile-sticky-accept-btn"
+        >
+          <Compass className="w-4 h-4 text-[#dfd4be]" />
+          <span>Accept Quest & Enter Expedition</span>
+          <ArrowRight className="w-4 h-4 text-[#c86432]" />
+        </button>
       </div>
     </div>
   );

@@ -196,7 +196,7 @@ export function App() {
     <div className="min-h-screen flex flex-col bg-[#fbf9f3]">
       {/* Toast Notification */}
       {toast && (
-        <div className="fixed bottom-20 md:bottom-6 right-4 md:right-6 z-50 px-4 py-2.5 rounded-xl bg-[#1b382b] text-[#fbf9f3] text-xs font-semibold shadow-field-lg flex items-center gap-2 animate-bounce max-w-[90vw]">
+        <div className="fixed bottom-[calc(4.5rem+env(safe-area-inset-bottom,0px))] md:bottom-6 right-4 md:right-6 z-50 px-4 py-2.5 rounded-xl bg-[#1b382b] text-[#fbf9f3] text-xs font-semibold shadow-field-lg flex items-center gap-2 animate-bounce max-w-[90vw]">
           <span className="w-2 h-2 rounded-full bg-[#c86432] shrink-0" />
           <span>{toast}</span>
         </div>
@@ -211,7 +211,7 @@ export function App() {
       />
 
       {/* Screen Router */}
-      <main className={`flex-1 ${currentScreen === 'expedition' ? '' : 'pb-20 md:pb-0'}`}>
+      <main className={`flex-1 ${currentScreen === 'expedition' ? '' : 'pb-[calc(4.75rem+env(safe-area-inset-bottom,0px))] md:pb-0'}`}>
         {currentScreen === 'home' && (
           <HomeScreen
             setScreen={setScreen}

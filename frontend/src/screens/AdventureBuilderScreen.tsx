@@ -91,7 +91,7 @@ export const AdventureBuilderScreen: React.FC<AdventureBuilderProps> = ({
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-10">
+    <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-10 pb-28 sm:pb-10">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-5 border-b border-[#e2dac2] gap-4">
         <div>
@@ -406,6 +406,30 @@ export const AdventureBuilderScreen: React.FC<AdventureBuilderProps> = ({
           </button>
         </div>
       </form>
+
+      {/* Sticky Mobile Generate Bar (< sm) */}
+      <div className="fixed bottom-16 inset-x-0 p-3 bg-[#fbf9f3]/95 backdrop-blur-md border-t border-[#dfd4be] sm:hidden z-30 shadow-[0_-4px_16px_rgba(0,0,0,0.06)] pb-[calc(0.75rem+env(safe-area-inset-bottom,0px))]">
+        <button
+          type="button"
+          onClick={handleSubmit}
+          disabled={isLoading}
+          className="w-full py-3.5 px-4 rounded-xl bg-[#1b382b] text-[#fbf9f3] text-sm font-semibold hover:bg-[#284d3d] active:scale-[0.98] transition-all shadow-md flex items-center justify-center gap-2.5 disabled:opacity-50 min-h-[48px]"
+          id="builder-mobile-sticky-generate-btn"
+        >
+          {isLoading ? (
+            <>
+              <RefreshCw className="w-4 h-4 animate-spin text-[#dfd4be]" />
+              <span>Synthesizing Quest...</span>
+            </>
+          ) : (
+            <>
+              <Compass className="w-4 h-4 text-[#dfd4be]" />
+              <span>Generate Outdoor Quest</span>
+              <ArrowRight className="w-4 h-4 text-[#c86432]" />
+            </>
+          )}
+        </button>
+      </div>
     </div>
   );
 };

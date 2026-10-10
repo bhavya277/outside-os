@@ -138,7 +138,7 @@ export const Navbar: React.FC<NavbarProps> = ({
       {/* Mobile Bottom Navigation Bar (< md) */}
       <nav
         aria-label="Mobile Navigation"
-        className="fixed bottom-0 inset-x-0 z-40 bg-[#fbf9f3]/95 backdrop-blur-md border-t border-[#e2dac2] md:hidden shadow-[0_-4px_16px_rgba(0,0,0,0.04)]"
+        className="fixed bottom-0 inset-x-0 z-40 bg-[#fbf9f3]/95 backdrop-blur-md border-t border-[#e2dac2] md:hidden shadow-[0_-4px_16px_rgba(0,0,0,0.04)] pb-[env(safe-area-inset-bottom,0px)]"
       >
         <div className="grid grid-cols-5 h-16 max-w-md mx-auto px-2">
           {navLinks.map((item) => {

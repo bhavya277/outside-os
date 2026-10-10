@@ -45,7 +45,35 @@ export const ExpeditionScreen: React.FC<ExpeditionScreenProps> = ({
     return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
   };
 
+  // Request Screen WakeLock so phone doesn't sleep while reading instructions outdoors
+  useEffect(() => {
+    let wakeLockSentinel: any = null;
+    if ('wakeLock' in navigator && !pocketMode && !session.isPaused) {
+      (navigator as any).wakeLock
+        ?.request('screen')
+        .then((lock: any) => {
+          wakeLockSentinel = lock;
+        })
+        .catch(() => {});
+    }
+    return () => {
+      wakeLockSentinel?.release().catch(() => {});
+    };
+  }, [pocketMode, session.isPaused]);
+
+  // Haptic feedback helper for mobile devices
+  const triggerHaptic = (ms: number = 25) => {
+    try {
+      if (typeof window !== 'undefined' && 'vibrate' in navigator) {
+        navigator.vibrate(ms);
+      }
+    } catch {
+      // Ignore on devices without vibration support
+    }
+  };
+
   const handleTogglePause = () => {
+    triggerHaptic(30);
     if (!session.isPaused) {
       // Pause
       const additional = Math.floor((Date.now() - session.startTimestamp) / 1000);
@@ -67,6 +95,7 @@ export const ExpeditionScreen: React.FC<ExpeditionScreenProps> = ({
   };
 
   const handleToggleCheckItem = (itemText: string) => {
+    triggerHaptic(25);
     const current = session.checkedItems;
     const next = current.includes(itemText)
       ? current.filter((i) => i !== itemText)
@@ -75,6 +104,7 @@ export const ExpeditionScreen: React.FC<ExpeditionScreenProps> = ({
   };
 
   const handleStepToggle = (stepNumber: number) => {
+    triggerHaptic(25);
     const current = session.completedSteps;
     const next = current.includes(stepNumber)
       ? current.filter((s) => s !== stepNumber)
