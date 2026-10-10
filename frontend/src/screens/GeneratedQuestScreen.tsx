@@ -22,14 +22,14 @@ export const GeneratedQuestScreen: React.FC<GeneratedQuestProps> = ({
   const isFromAI = quest.provenance.startsWith('ollama:');
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-10">
       {/* Top provenance & action row */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#e2dac2] gap-3">
-        <div className="flex items-center gap-2">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#c86432] font-bold">Screen 3 // Field Card</span>
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="text-[11px] font-mono uppercase tracking-widest text-[#c86432] font-bold">Screen 3 // Field Card</span>
           <span className="text-gray-300">·</span>
           <span
-            className={`px-2.5 py-0.5 rounded-full text-[11px] font-mono border ${
+            className={`px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-mono border ${
               isFromAI
                 ? 'bg-emerald-50 text-emerald-800 border-emerald-300'
                 : 'bg-amber-50 text-amber-900 border-amber-300'
@@ -39,7 +39,7 @@ export const GeneratedQuestScreen: React.FC<GeneratedQuestProps> = ({
           </span>
         </div>
 
-        <div className="flex items-center gap-2 text-xs">
+        <div className="flex flex-wrap items-center gap-2 text-xs">
           <button
             onClick={onModify}
             className="px-3 py-1.5 rounded-lg border border-[#dfd4be] bg-white text-[#1b382b] hover:bg-[#ede6d6] flex items-center gap-1.5 font-medium transition-colors"
@@ -70,7 +70,7 @@ export const GeneratedQuestScreen: React.FC<GeneratedQuestProps> = ({
       </div>
 
       {/* Structured Field Card */}
-      <div className="mt-6 field-card rounded-3xl p-6 sm:p-10 shadow-field-lg">
+      <div className="mt-5 sm:mt-6 field-card rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-10 shadow-field-lg">
         {/* Card Header */}
         <div className="border-b border-[#f0ead8] pb-6">
           <div className="flex flex-wrap items-center gap-2 mb-3">

@@ -10,6 +10,21 @@ import {
 
 const API_BASE = import.meta.env.VITE_API_BASE ?? (import.meta.env.DEV ? 'http://localhost:8000' : '');
 
+function getApiUrl(path: string): URL {
+  if (API_BASE) {
+    try {
+      return new URL(path, API_BASE);
+    } catch {
+      // Fallback if API_BASE is relative or malformed
+    }
+  }
+  const origin =
+    typeof window !== 'undefined' && window.location?.origin
+      ? window.location.origin
+      : 'http://localhost:8000';
+  return new URL(path, origin);
+}
+
 export async function getModelStatus(): Promise<ModelStatus> {
   try {
     const res = await fetch(`${API_BASE}/api/model/status`);
@@ -35,7 +50,7 @@ export async function generateQuest(
   preferOffline: boolean = false,
   modelOverride?: string
 ): Promise<Quest> {
-  const url = new URL(`${API_BASE}/api/quest/generate`);
+  const url = getApiUrl('/api/quest/generate');
   if (preferOffline) url.searchParams.set('prefer_offline', 'true');
   if (modelOverride) url.searchParams.set('model_override', modelOverride);
 
@@ -100,7 +115,7 @@ export async function addJournalEntry(entry: JournalEntry): Promise<JournalEntry
 
 export async function getJournalEntries(search?: string, tag?: string): Promise<JournalEntry[]> {
   try {
-    const url = new URL(`${API_BASE}/api/journal/entries`);
+    const url = getApiUrl('/api/journal/entries');
     if (search) url.searchParams.set('search', search);
     if (tag) url.searchParams.set('tag', tag);
 

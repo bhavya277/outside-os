@@ -59,13 +59,13 @@ export const LibrarySettingsScreen: React.FC<LibrarySettingsProps> = ({
   };
 
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
+    <div className="max-w-5xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-10 space-y-8 sm:space-y-12">
       {/* Header */}
-      <div className="pb-6 border-b border-[#e2dac2]">
-        <span className="text-xs font-mono uppercase tracking-widest text-[#c86432] font-bold">
+      <div className="pb-5 border-b border-[#e2dac2]">
+        <span className="text-[11px] font-mono uppercase tracking-widest text-[#c86432] font-bold">
           Screen 8 // Quest Library & Architecture
         </span>
-        <h1 className="font-serif text-3xl font-bold text-[#0f241a] mt-1">Quest Packs & System Config</h1>
+        <h1 className="font-serif text-2xl sm:text-3xl font-bold text-[#0f241a] mt-1">Quest Packs & System Config</h1>
         <p className="text-xs text-[#4e6556] mt-1">
           Community-authored packs, local inference controls, and zero-telemetry data sovereignty.
         </p>
@@ -73,15 +73,15 @@ export const LibrarySettingsScreen: React.FC<LibrarySettingsProps> = ({
 
       {/* 1. Starter Quest Packs */}
       <section>
-        <div className="flex items-center gap-2 mb-4">
+        <div className="flex items-center gap-2 mb-3">
           <Package className="w-5 h-5 text-[#c86432]" />
           <h2 className="font-serif text-xl font-bold text-[#122419]">Curated Starter Quest Packs</h2>
         </div>
-        <p className="text-xs text-[#4e6556] mb-6">
+        <p className="text-xs text-[#4e6556] mb-5">
           Community packs authored to strict physical safety and non-intrusive observation standards.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {packs.map((pack) => (
             <div key={pack.meta.id} className="field-card rounded-2xl p-6 flex flex-col justify-between">
               <div>

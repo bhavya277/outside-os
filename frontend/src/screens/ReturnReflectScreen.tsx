@@ -84,12 +84,12 @@ export const ReturnReflectScreen: React.FC<ReturnReflectProps> = ({
   };
 
   return (
-    <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      <div className="pb-6 border-b border-[#e2dac2]">
-        <span className="text-xs font-mono uppercase tracking-widest text-[#c86432] font-bold">
+    <div className="max-w-3xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-10">
+      <div className="pb-5 border-b border-[#e2dac2]">
+        <span className="text-[11px] font-mono uppercase tracking-widest text-[#c86432] font-bold">
           Screen 5 // Field Reflection
         </span>
-        <h1 className="font-serif text-3xl font-bold text-[#0f241a] mt-1">
+        <h1 className="font-serif text-2xl sm:text-3xl font-bold text-[#0f241a] mt-1">
           Welcome Back to Your Field Journal
         </h1>
         <p className="text-xs text-[#4e6556] mt-1">
@@ -261,11 +261,11 @@ export const ReturnReflectScreen: React.FC<ReturnReflectProps> = ({
         </div>
 
         {/* Actions */}
-        <div className="flex items-center justify-between pt-4">
+        <div className="flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-4">
           <button
             type="button"
             onClick={onCancel}
-            className="px-5 py-3 rounded-xl border border-[#dfd4be] text-xs font-semibold text-[#4e6556] hover:bg-[#ede6d6]"
+            className="px-5 py-3 rounded-xl border border-[#dfd4be] text-xs font-semibold text-[#4e6556] hover:bg-[#ede6d6] text-center"
             id="reflect-cancel-btn"
           >
             Cancel
@@ -274,7 +274,7 @@ export const ReturnReflectScreen: React.FC<ReturnReflectProps> = ({
           <button
             type="button"
             onClick={handleSave}
-            className="px-8 py-3.5 rounded-xl bg-[#1b382b] text-white text-sm font-semibold hover:bg-[#284d3d] flex items-center gap-2 shadow-field"
+            className="px-8 py-3.5 rounded-xl bg-[#1b382b] text-white text-sm font-semibold hover:bg-[#284d3d] flex items-center justify-center gap-2 shadow-field"
             id="reflect-save-btn"
           >
             <span>Save to Field Journal</span>

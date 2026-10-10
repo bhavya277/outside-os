@@ -71,14 +71,14 @@ _Generated locally with OUTSIDE//OS — Touch Grass_
   };
 
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div className="max-w-5xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-10">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-[#e2dac2] gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-5 border-b border-[#e2dac2] gap-4">
         <div>
-          <span className="text-xs font-mono uppercase tracking-widest text-[#c86432] font-bold">
+          <span className="text-[11px] font-mono uppercase tracking-widest text-[#c86432] font-bold">
             Screen 6 // Field Journal
           </span>
-          <h1 className="font-serif text-3xl font-bold text-[#0f241a] mt-1">Personal Nature Memory</h1>
+          <h1 className="font-serif text-2xl sm:text-3xl font-bold text-[#0f241a] mt-1">Personal Nature Memory</h1>
           <p className="text-xs text-[#4e6556] mt-1">
             Persisted locally in SQLite on this machine. Private, immutable, and exportable at any time.
           </p>
@@ -309,7 +309,7 @@ _Generated locally with OUTSIDE//OS — Touch Grass_
               )}
             </div>
 
-            <div className="mt-6 pt-4 border-t border-[#e2dac2] flex items-center justify-between">
+            <div className="mt-6 pt-4 border-t border-[#e2dac2] flex flex-col-reverse sm:flex-row sm:items-center justify-between gap-3">
               <button
                 onClick={() => {
                   if (confirm('Permanently delete this field note from your local database?')) {
@@ -317,7 +317,7 @@ _Generated locally with OUTSIDE//OS — Touch Grass_
                     setSelectedEntry(null);
                   }
                 }}
-                className="px-3.5 py-2 rounded-xl text-red-700 hover:bg-red-50 text-xs font-semibold flex items-center gap-1.5"
+                className="px-3.5 py-2.5 rounded-xl text-red-700 hover:bg-red-50 text-xs font-semibold flex items-center justify-center gap-1.5"
                 id="journal-modal-delete-btn"
               >
                 <Trash2 className="w-3.5 h-3.5" />
@@ -326,7 +326,7 @@ _Generated locally with OUTSIDE//OS — Touch Grass_
 
               <button
                 onClick={() => exportAsMarkdown(selectedEntry)}
-                className="px-4 py-2 rounded-xl bg-[#1b382b] text-white text-xs font-semibold hover:bg-[#284d3d] flex items-center gap-1.5"
+                className="px-4 py-2.5 rounded-xl bg-[#1b382b] text-white text-xs font-semibold hover:bg-[#284d3d] flex items-center justify-center gap-1.5"
                 id="journal-modal-export-md-btn"
               >
                 <FileText className="w-3.5 h-3.5 text-[#dfd4be]" />

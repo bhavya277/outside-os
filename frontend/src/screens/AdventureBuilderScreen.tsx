@@ -91,12 +91,12 @@ export const AdventureBuilderScreen: React.FC<AdventureBuilderProps> = ({
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-10">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-[#e2dac2] gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-5 border-b border-[#e2dac2] gap-4">
         <div>
-          <span className="text-xs font-mono uppercase tracking-widest text-[#c86432] font-bold">Screen 2 // Adventure Builder</span>
-          <h1 className="font-serif text-3xl font-bold text-[#0f241a] mt-1">Configure Your Quest DNA</h1>
+          <span className="text-[11px] font-mono uppercase tracking-widest text-[#c86432] font-bold">Screen 2 // Adventure Builder</span>
+          <h1 className="font-serif text-2xl sm:text-3xl font-bold text-[#0f241a] mt-1">Configure Your Quest DNA</h1>
           <p className="text-xs text-[#4e6556] mt-1">
             Input your real-world parameters. Our local AI engine generates concrete steps tailored to physical reality.
           </p>
@@ -105,7 +105,7 @@ export const AdventureBuilderScreen: React.FC<AdventureBuilderProps> = ({
         <button
           type="button"
           onClick={handleSurpriseMe}
-          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white border border-[#dfd4be] text-xs font-semibold text-[#1b382b] hover:bg-[#ede6d6] shadow-sm transition-colors"
+          className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-white border border-[#dfd4be] text-xs font-semibold text-[#1b382b] hover:bg-[#ede6d6] shadow-sm transition-colors w-full sm:w-auto"
           id="builder-surprise-me-btn"
         >
           <Sparkles className="w-3.5 h-3.5 text-[#c86432]" />
@@ -114,7 +114,7 @@ export const AdventureBuilderScreen: React.FC<AdventureBuilderProps> = ({
       </div>
 
       {error && (
-        <div className="mt-6 p-4 rounded-xl bg-red-50 border border-red-200 text-red-800 text-xs flex items-start gap-2.5">
+        <div className="mt-5 p-4 rounded-xl bg-red-50 border border-red-200 text-red-800 text-xs flex items-start gap-2.5">
           <AlertCircle className="w-4 h-4 mt-0.5 text-red-600 shrink-0" />
           <div>
             <p className="font-semibold">Notice</p>
@@ -123,20 +123,20 @@ export const AdventureBuilderScreen: React.FC<AdventureBuilderProps> = ({
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="mt-8 space-y-8">
+      <form onSubmit={handleSubmit} className="mt-6 sm:mt-8 space-y-6 sm:space-y-8">
         {/* 1. Available Time */}
-        <div className="field-card rounded-2xl p-6">
+        <div className="field-card rounded-2xl p-4 sm:p-6">
           <div className="flex items-center gap-2 mb-3">
             <Clock className="w-4 h-4 text-[#c86432]" />
             <h2 className="text-sm font-bold text-[#122419]">Available Time (Minutes)</h2>
           </div>
-          <div className="grid grid-cols-5 gap-2 sm:gap-3">
+          <div className="grid grid-cols-5 gap-1.5 sm:gap-3">
             {durationOptions.map((mins) => (
               <button
                 key={mins}
                 type="button"
                 onClick={() => setDuration(mins)}
-                className={`py-3 rounded-xl text-center text-xs font-semibold transition-all ${
+                className={`py-2.5 sm:py-3 px-1 rounded-xl text-center text-xs font-semibold transition-all ${
                   duration === mins
                     ? 'bg-[#1b382b] text-white shadow-md ring-2 ring-[#c86432]/50'
                     : 'bg-[#f5f0e6] text-[#284d3d] hover:bg-[#ede6d6]'
@@ -318,8 +318,8 @@ export const AdventureBuilderScreen: React.FC<AdventureBuilderProps> = ({
         </div>
 
         {/* 6. Settings toggles: Social mode & No Equipment filter */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div className="p-4 rounded-xl bg-white border border-[#e2dac2] flex items-center justify-between">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+          <div className="p-4 rounded-xl bg-white border border-[#e2dac2] flex flex-wrap items-center justify-between gap-2">
             <div className="flex items-center gap-2 text-xs">
               <Users className="w-4 h-4 text-[#608269]" />
               <span className="font-semibold text-[#122419]">Social Mode:</span>
@@ -364,9 +364,9 @@ export const AdventureBuilderScreen: React.FC<AdventureBuilderProps> = ({
         </div>
 
         {/* 7. Inference Mode Selection (Ollama vs Offline) */}
-        <div className="p-4 rounded-xl bg-[#f5f0e6] border border-[#dfd4be] flex items-center justify-between text-xs">
+        <div className="p-4 rounded-xl bg-[#f5f0e6] border border-[#dfd4be] flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 text-xs">
           <div className="flex items-center gap-2">
-            <div className={`w-2.5 h-2.5 rounded-full ${modelStatus?.ollama_available ? 'bg-emerald-500' : 'bg-amber-500'}`} />
+            <div className={`w-2.5 h-2.5 rounded-full shrink-0 ${modelStatus?.ollama_available ? 'bg-emerald-500' : 'bg-amber-500'}`} />
             <span className="text-[#122419] font-medium">
               Inference Source: {preferOffline ? 'Offline Field Library' : (modelStatus?.ollama_available ? `Local Ollama (${modelStatus.active_model})` : 'Offline Field Library')}
             </span>
@@ -388,7 +388,7 @@ export const AdventureBuilderScreen: React.FC<AdventureBuilderProps> = ({
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full py-4 rounded-xl bg-[#1b382b] text-[#fbf9f3] text-base font-semibold hover:bg-[#284d3d] transition-all shadow-field flex items-center justify-center gap-3 disabled:opacity-50"
+            className="w-full py-4 rounded-xl bg-[#1b382b] text-[#fbf9f3] text-sm sm:text-base font-semibold hover:bg-[#284d3d] transition-all shadow-field flex items-center justify-center gap-2.5 sm:gap-3 disabled:opacity-50 min-h-[52px]"
             id="builder-generate-quest-btn"
           >
             {isLoading ? (

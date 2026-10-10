@@ -71,21 +71,21 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
           </div>
 
           {/* Main Title */}
-          <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[#0f241a] max-w-4xl mx-auto leading-[1.08]">
+          <h1 className="font-serif text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-[#0f241a] max-w-4xl mx-auto leading-[1.12] sm:leading-[1.08]">
             Your AI should get you <span className="italic underline decoration-[#c86432]/60 decoration-wavy">out</span> of the app, not keep you inside it.
           </h1>
 
           {/* Subtitle */}
-          <p className="mt-6 text-lg sm:text-xl text-[#38634f] max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-5 sm:mt-6 text-base sm:text-xl text-[#38634f] max-w-2xl mx-auto leading-relaxed">
             OUTSIDE//OS transforms your available time, surroundings, and energy into tactile outdoor quests. 
             Generate a mission, stow your phone in Pocket Mode, and return only to record what you uncovered.
           </p>
 
           {/* Primary & Secondary CTAs */}
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
             <button
               onClick={() => setScreen('builder')}
-              className="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#1b382b] text-[#fbf9f3] text-base font-semibold hover:bg-[#284d3d] transition-all shadow-field flex items-center justify-center gap-2.5 group"
+              className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-[#1b382b] text-[#fbf9f3] text-sm sm:text-base font-semibold hover:bg-[#284d3d] transition-all shadow-field flex items-center justify-center gap-2.5 group"
               id="hero-create-adventure-btn"
             >
               <Compass className="w-5 h-5 text-[#dfd4be] group-hover:rotate-45 transition-transform" />

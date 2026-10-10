@@ -9,20 +9,20 @@ interface DashboardScreenProps {
 
 export const DashboardScreen: React.FC<DashboardScreenProps> = ({ stats, setScreen }) => {
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div className="max-w-5xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-10">
       {/* Header */}
-      <div className="pb-6 border-b border-[#e2dac2]">
-        <span className="text-xs font-mono uppercase tracking-widest text-[#c86432] font-bold">
+      <div className="pb-5 border-b border-[#e2dac2]">
+        <span className="text-[11px] font-mono uppercase tracking-widest text-[#c86432] font-bold">
           Screen 7 // Exploration Log
         </span>
-        <h1 className="font-serif text-3xl font-bold text-[#0f241a] mt-1">Real-World Exploration Metrics</h1>
+        <h1 className="font-serif text-2xl sm:text-3xl font-bold text-[#0f241a] mt-1">Real-World Exploration Metrics</h1>
         <p className="text-xs text-[#4e6556] mt-1">
           Honest, non-compulsive outdoor metrics derived strictly from your verified local SQLite records.
         </p>
       </div>
 
       {/* Primary KPI Cards */}
-      <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="mt-6 sm:mt-8 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
         <div className="field-card rounded-2xl p-5">
           <div className="flex items-center justify-between text-xs font-mono text-[#608269] mb-2">
             <span>EXPEDITIONS</span>

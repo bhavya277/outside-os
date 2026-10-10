@@ -180,10 +180,10 @@ export const ExpeditionScreen: React.FC<ExpeditionScreenProps> = ({
             Target: {session.quest.duration_minutes} minutes ({session.quest.environment})
           </p>
 
-          <div className="mt-4 flex items-center justify-center gap-3">
+          <div className="mt-4 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-2.5 sm:gap-3">
             <button
               onClick={handleTogglePause}
-              className="px-4 py-2 rounded-xl border border-[#dfd4be] text-xs font-semibold text-[#1b382b] hover:bg-[#ede6d6] flex items-center gap-2"
+              className="px-4 py-2.5 rounded-xl border border-[#dfd4be] text-xs font-semibold text-[#1b382b] hover:bg-[#ede6d6] flex items-center justify-center gap-2"
               id="expedition-pause-btn"
             >
               {session.isPaused ? (
@@ -201,11 +201,11 @@ export const ExpeditionScreen: React.FC<ExpeditionScreenProps> = ({
 
             <button
               onClick={() => setPocketMode(true)}
-              className="px-4 py-2 rounded-xl bg-[#c86432] text-white text-xs font-semibold hover:bg-[#b24f1b] flex items-center gap-2 shadow-sm"
+              className="px-4 py-2.5 rounded-xl bg-[#c86432] text-white text-xs font-semibold hover:bg-[#b24f1b] flex items-center justify-center gap-2 shadow-sm"
               id="expedition-stow-phone-btn"
             >
               <Smartphone className="w-3.5 h-3.5" />
-              <span>Stow Phone Away</span>
+              <span>Stow Phone Away (Pocket Mode)</span>
             </button>
           </div>
         </div>
