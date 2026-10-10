@@ -84,7 +84,7 @@ export const ReturnReflectScreen: React.FC<ReturnReflectProps> = ({
   };
 
   return (
-    <div className="max-w-3xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-10">
+    <div className="max-w-3xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-10 pb-28 sm:pb-12">
       <div className="pb-5 border-b border-[#e2dac2]">
         <span className="text-[11px] font-mono uppercase tracking-widest text-[#c86432] font-bold">
           Screen 5 // Field Reflection

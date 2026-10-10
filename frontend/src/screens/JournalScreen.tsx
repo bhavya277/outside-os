@@ -119,7 +119,7 @@ _Generated locally with OUTSIDE//OS — Touch Grass_
         </div>
 
         {allTags.length > 0 && (
-          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs">
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs no-scrollbar">
             <button
               onClick={() => setSelectedTag(null)}
               className={`px-3 py-1.5 rounded-lg whitespace-nowrap text-xs font-medium transition-colors ${
@@ -243,8 +243,8 @@ _Generated locally with OUTSIDE//OS — Touch Grass_
 
       {/* Selected Entry Detail Modal */}
       {selectedEntry && (
-        <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-[#fbf9f3] max-w-2xl w-full max-h-[90vh] overflow-y-auto rounded-3xl p-6 sm:p-8 border border-[#e2dac2] shadow-2xl relative">
+        <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4">
+          <div className="bg-[#fbf9f3] max-w-2xl w-full max-h-[88dvh] overflow-y-auto rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-[#e2dac2] shadow-2xl relative">
             <button
               onClick={() => setSelectedEntry(null)}
               className="absolute top-5 right-5 p-2 rounded-full hover:bg-[#ede6d6] text-[#4e6556]"

@@ -46,7 +46,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
   ];
 
   return (
-    <div className="min-h-screen bg-topo-pattern pb-16">
+    <div className="min-h-screen min-h-[100dvh] bg-topo-pattern pb-28 sm:pb-16">
       {/* Top Banner / Hero */}
       <section className="relative overflow-hidden pt-12 pb-20 sm:pt-20 sm:pb-28 border-b border-[#e5dec9]">
         {/* Subtle contour SVG backdrop */}

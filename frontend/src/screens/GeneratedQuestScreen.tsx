@@ -22,7 +22,7 @@ export const GeneratedQuestScreen: React.FC<GeneratedQuestProps> = ({
   const isFromAI = quest.provenance.startsWith('ollama:');
 
   return (
-    <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-10 pb-28 sm:pb-10">
+    <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-10 pb-36 sm:pb-12">
       {/* Top provenance & action row */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#e2dac2] gap-3">
         <div className="flex flex-wrap items-center gap-2">
@@ -225,7 +225,7 @@ export const GeneratedQuestScreen: React.FC<GeneratedQuestProps> = ({
       </div>
 
       {/* Sticky Mobile Accept Bar (< sm) */}
-      <div className="fixed bottom-16 inset-x-0 p-3 bg-[#fbf9f3]/95 backdrop-blur-md border-t border-[#dfd4be] sm:hidden z-30 shadow-[0_-4px_16px_rgba(0,0,0,0.06)] pb-[calc(0.75rem+env(safe-area-inset-bottom,0px))]">
+      <div className="fixed bottom-[calc(4rem+env(safe-area-inset-bottom,0px))] inset-x-0 p-3 bg-[#fbf9f3]/95 backdrop-blur-md border-t border-[#dfd4be] sm:hidden z-30 shadow-[0_-4px_16px_rgba(0,0,0,0.06)]">
         <button
           type="button"
           onClick={onAccept}

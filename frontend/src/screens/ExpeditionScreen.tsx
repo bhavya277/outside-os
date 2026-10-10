@@ -192,7 +192,7 @@ export const ExpeditionScreen: React.FC<ExpeditionScreenProps> = ({
   if (pocketMode) {
     return (
       <div
-        className="fixed inset-0 z-50 bg-[#070e0a] text-[#ede6d6] flex flex-col justify-between p-6 sm:p-12 cursor-pointer select-none transition-colors"
+        className="fixed inset-0 z-50 bg-[#070e0a] text-[#ede6d6] flex flex-col justify-between p-4 sm:p-12 pb-[calc(1.5rem+env(safe-area-inset-bottom,0px))] pt-[calc(1.5rem+env(safe-area-inset-top,0px))] cursor-pointer select-none transition-colors min-h-[100dvh]"
         onClick={() => setPocketMode(false)}
         id="pocket-mode-overlay"
       >
@@ -209,7 +209,7 @@ export const ExpeditionScreen: React.FC<ExpeditionScreenProps> = ({
             <Smartphone className="w-8 h-8 opacity-75" />
           </div>
 
-          <h1 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-[#fbf9f3] leading-snug">
+          <h1 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#fbf9f3] leading-snug">
             Put your phone in your pocket.
           </h1>
 
@@ -334,18 +334,22 @@ export const ExpeditionScreen: React.FC<ExpeditionScreenProps> = ({
           </div>
 
           {/* Audio Chime Mode Selector Strip */}
-          <div className="mt-5 pt-4 border-t border-[#f0ebd9] flex flex-wrap items-center justify-between gap-2.5 text-xs">
-            <div className="flex items-center gap-1.5 text-[#4e6556]">
-              {chimeMode !== 'off' ? (
-                <Bell className="w-4 h-4 text-amber-600" />
-              ) : (
-                <BellOff className="w-4 h-4 text-[#8fa797]" />
-              )}
-              <span className="font-semibold text-[#1b382b]">Pocket Chime:</span>
-              <span className="text-[#608269] font-mono text-[11px]">{getChimeModeLabel(chimeMode)}</span>
+          <div className="mt-5 pt-4 border-t border-[#f0ebd9] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 text-xs">
+            <div className="flex items-center justify-between sm:justify-start gap-2 text-[#4e6556]">
+              <div className="flex items-center gap-1.5">
+                {chimeMode !== 'off' ? (
+                  <Bell className="w-4 h-4 text-amber-600" />
+                ) : (
+                  <BellOff className="w-4 h-4 text-[#8fa797]" />
+                )}
+                <span className="font-semibold text-[#1b382b]">Pocket Chime:</span>
+              </div>
+              <span className="text-[#608269] font-mono text-[11px] bg-[#ede6d6]/60 px-2 py-0.5 rounded sm:bg-transparent sm:p-0">
+                {getChimeModeLabel(chimeMode)}
+              </span>
             </div>
 
-            <div className="flex items-center gap-1.5">
+            <div className="grid grid-cols-4 sm:flex items-center gap-1.5">
               {(['milestones', '5min', '10min', 'off'] as ChimeMode[]).map((mode) => (
                 <button
                   key={mode}
@@ -358,14 +362,14 @@ export const ExpeditionScreen: React.FC<ExpeditionScreenProps> = ({
                     } catch {}
                     if (mode !== 'off') chimeService.playPreviewChime();
                   }}
-                  className={`px-2.5 py-1 rounded-lg text-[11px] font-mono transition-colors ${
+                  className={`py-1.5 px-1.5 sm:px-2.5 rounded-lg text-[10px] sm:text-[11px] font-mono transition-colors text-center ${
                     chimeMode === mode
                       ? 'bg-[#1b382b] text-[#fbf9f3] font-semibold shadow-sm'
                       : 'bg-[#ede6d6]/70 text-[#4e6556] hover:bg-[#e2dac2]'
                   }`}
                   id={`expedition-chime-mode-${mode}`}
                 >
-                  {mode === 'milestones' ? 'Halfway & End' : mode === '5min' ? '5m Bells' : mode === '10min' ? '10m Bells' : 'Mute'}
+                  {mode === 'milestones' ? 'Halfway' : mode === '5min' ? '5m' : mode === '10min' ? '10m' : 'Mute'}
                 </button>
               ))}
               <button
@@ -374,11 +378,12 @@ export const ExpeditionScreen: React.FC<ExpeditionScreenProps> = ({
                   chimeService.unlock();
                   chimeService.playPreviewChime();
                 }}
-                className="p-1.5 rounded-lg text-[#608269] hover:text-[#1b382b] hover:bg-[#ede6d6]"
+                className="col-span-4 sm:col-span-1 p-1.5 rounded-lg text-[#608269] hover:text-[#1b382b] hover:bg-[#ede6d6] flex items-center justify-center gap-1 text-[11px] border border-dashed border-[#dfd4be] sm:border-none"
                 title="Preview Singing Bowl Chime"
                 id="expedition-chime-preview-btn"
               >
                 <Volume2 className="w-3.5 h-3.5" />
+                <span className="sm:hidden font-mono text-[10px]">Preview Sound</span>
               </button>
             </div>
           </div>
