@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { Play, Pause, Square, CheckSquare, Square as UncheckedSquare, Moon, Sun, ArrowLeft, CheckCircle, Smartphone } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Play, Pause, CheckSquare, Square as UncheckedSquare, Moon, Sun, ArrowLeft, CheckCircle, Smartphone, Bell, BellOff, Volume2 } from 'lucide-react';
 import { ActiveSession } from '../types';
+import { chimeService, ChimeMode } from '../services/chimeService';
 
 interface ExpeditionScreenProps {
   session: ActiveSession;
@@ -18,6 +19,15 @@ export const ExpeditionScreen: React.FC<ExpeditionScreenProps> = ({
   const [pocketMode, setPocketMode] = useState<boolean>(false);
   const [highContrast, setHighContrast] = useState<boolean>(false);
   const [currentTime, setCurrentTime] = useState<number>(Date.now());
+  const [chimeMode, setChimeMode] = useState<ChimeMode>(() => {
+    try {
+      const saved = localStorage.getItem('outside_os_chime_mode');
+      return (saved as ChimeMode) || 'milestones';
+    } catch {
+      return 'milestones';
+    }
+  });
+  const triggeredMilestonesRef = useRef<Set<string>>(new Set());
 
   // Real elapsed time calculated via timestamp differences
   useEffect(() => {
@@ -43,6 +53,72 @@ export const ExpeditionScreen: React.FC<ExpeditionScreenProps> = ({
     const m = Math.floor(secs / 60);
     const s = secs % 60;
     return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+  };
+
+  const targetSeconds = (session.quest.duration_minutes || 15) * 60;
+  const halfwaySeconds = Math.floor(targetSeconds / 2);
+
+  // Monitor elapsed time and trigger peaceful audio singing bowl chimes at milestones
+  useEffect(() => {
+    if (session.isPaused || chimeMode === 'off') return;
+
+    // 1. Halfway mark
+    if (elapsedSeconds >= halfwaySeconds && elapsedSeconds < halfwaySeconds + 5 && !triggeredMilestonesRef.current.has('halfway')) {
+      triggeredMilestonesRef.current.add('halfway');
+      chimeService.playMilestoneChime();
+    }
+
+    // 2. Target completion mark
+    if (elapsedSeconds >= targetSeconds && elapsedSeconds < targetSeconds + 5 && !triggeredMilestonesRef.current.has('complete')) {
+      triggeredMilestonesRef.current.add('complete');
+      chimeService.playCompletionChime();
+    }
+
+    // 3. Periodic interval chime (every 5min or 10min)
+    if (chimeMode === '5min' || chimeMode === '10min') {
+      const intervalSec = chimeMode === '5min' ? 300 : 600;
+      const intervalIndex = Math.floor(elapsedSeconds / intervalSec);
+      const intervalKey = `interval-${intervalSec}-${intervalIndex}`;
+      if (intervalIndex > 0 && elapsedSeconds % intervalSec < 4 && !triggeredMilestonesRef.current.has(intervalKey)) {
+        triggeredMilestonesRef.current.add(intervalKey);
+        chimeService.playMilestoneChime();
+      }
+    }
+  }, [elapsedSeconds, session.isPaused, chimeMode, halfwaySeconds, targetSeconds]);
+
+  const cycleChimeMode = () => {
+    chimeService.unlock();
+    const modes: ChimeMode[] = ['milestones', '5min', '10min', 'off'];
+    const nextIdx = (modes.indexOf(chimeMode) + 1) % modes.length;
+    const nextMode = modes[nextIdx];
+    setChimeMode(nextMode);
+    try {
+      localStorage.setItem('outside_os_chime_mode', nextMode);
+    } catch {}
+    if (nextMode !== 'off') {
+      chimeService.playPreviewChime();
+    } else {
+      triggerHaptic(20);
+    }
+  };
+
+  const getChimeModeLabel = (mode: ChimeMode): string => {
+    switch (mode) {
+      case 'milestones':
+        return 'Halfway & Finish';
+      case '5min':
+        return 'Every 5m';
+      case '10min':
+        return 'Every 10m';
+      case 'off':
+        return 'Muted';
+    }
+  };
+
+  const handleEnterPocketMode = () => {
+    triggerHaptic(30);
+    chimeService.unlock();
+    setPocketMode(true);
   };
 
   // Request Screen WakeLock so phone doesn't sleep while reading instructions outdoors
@@ -149,9 +225,27 @@ export const ExpeditionScreen: React.FC<ExpeditionScreenProps> = ({
             </span>
           </div>
 
-          <div className="pt-6">
+          <div className="pt-6 flex flex-wrap items-center justify-center gap-3">
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                cycleChimeMode();
+              }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#1b382b]/80 border border-[#284d3d] text-xs font-mono text-[#dfd4be] hover:border-[#7c9e85] active:scale-95 transition-all shadow-sm"
+              id="pocket-chime-toggle-btn"
+              title="Tap to cycle audio chime milestone mode"
+            >
+              {chimeMode !== 'off' ? (
+                <Bell className="w-3.5 h-3.5 text-amber-400" />
+              ) : (
+                <BellOff className="w-3.5 h-3.5 text-[#7c9e85]" />
+              )}
+              <span>Chime: {getChimeModeLabel(chimeMode)}</span>
+            </button>
+
             <span className="inline-block px-4 py-2 rounded-full bg-[#1b382b]/50 border border-[#284d3d] text-xs text-[#a3beab] font-mono">
-              Tap anywhere on screen to awaken controls
+              Tap anywhere to awaken controls
             </span>
           </div>
         </div>
@@ -187,7 +281,7 @@ export const ExpeditionScreen: React.FC<ExpeditionScreenProps> = ({
           </button>
 
           <button
-            onClick={() => setPocketMode(true)}
+            onClick={handleEnterPocketMode}
             className="px-3.5 py-1.5 rounded-lg bg-[#1b382b] text-[#fbf9f3] text-xs font-semibold hover:bg-[#284d3d] flex items-center gap-1.5 shadow-sm"
             id="expedition-pocket-mode-btn"
           >
@@ -230,13 +324,63 @@ export const ExpeditionScreen: React.FC<ExpeditionScreenProps> = ({
             </button>
 
             <button
-              onClick={() => setPocketMode(true)}
+              onClick={handleEnterPocketMode}
               className="px-4 py-2.5 rounded-xl bg-[#c86432] text-white text-xs font-semibold hover:bg-[#b24f1b] flex items-center justify-center gap-2 shadow-sm"
               id="expedition-stow-phone-btn"
             >
               <Smartphone className="w-3.5 h-3.5" />
               <span>Stow Phone Away (Pocket Mode)</span>
             </button>
+          </div>
+
+          {/* Audio Chime Mode Selector Strip */}
+          <div className="mt-5 pt-4 border-t border-[#f0ebd9] flex flex-wrap items-center justify-between gap-2.5 text-xs">
+            <div className="flex items-center gap-1.5 text-[#4e6556]">
+              {chimeMode !== 'off' ? (
+                <Bell className="w-4 h-4 text-amber-600" />
+              ) : (
+                <BellOff className="w-4 h-4 text-[#8fa797]" />
+              )}
+              <span className="font-semibold text-[#1b382b]">Pocket Chime:</span>
+              <span className="text-[#608269] font-mono text-[11px]">{getChimeModeLabel(chimeMode)}</span>
+            </div>
+
+            <div className="flex items-center gap-1.5">
+              {(['milestones', '5min', '10min', 'off'] as ChimeMode[]).map((mode) => (
+                <button
+                  key={mode}
+                  type="button"
+                  onClick={() => {
+                    chimeService.unlock();
+                    setChimeMode(mode);
+                    try {
+                      localStorage.setItem('outside_os_chime_mode', mode);
+                    } catch {}
+                    if (mode !== 'off') chimeService.playPreviewChime();
+                  }}
+                  className={`px-2.5 py-1 rounded-lg text-[11px] font-mono transition-colors ${
+                    chimeMode === mode
+                      ? 'bg-[#1b382b] text-[#fbf9f3] font-semibold shadow-sm'
+                      : 'bg-[#ede6d6]/70 text-[#4e6556] hover:bg-[#e2dac2]'
+                  }`}
+                  id={`expedition-chime-mode-${mode}`}
+                >
+                  {mode === 'milestones' ? 'Halfway & End' : mode === '5min' ? '5m Bells' : mode === '10min' ? '10m Bells' : 'Mute'}
+                </button>
+              ))}
+              <button
+                type="button"
+                onClick={() => {
+                  chimeService.unlock();
+                  chimeService.playPreviewChime();
+                }}
+                className="p-1.5 rounded-lg text-[#608269] hover:text-[#1b382b] hover:bg-[#ede6d6]"
+                title="Preview Singing Bowl Chime"
+                id="expedition-chime-preview-btn"
+              >
+                <Volume2 className="w-3.5 h-3.5" />
+              </button>
+            </div>
           </div>
         </div>
 

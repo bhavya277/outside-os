@@ -226,7 +226,7 @@ pytest -v backend/tests
 - [x] **P1:** Community Quest Pack JSON Schema Validator and 3 Starter Packs.
 - [x] **P1:** Field Journal export to JSON and Markdown format.
 - [x] **P1:** Full user privacy controls (complete data wipe and audit).
-- [ ] **P2 (Planned):** Periodic gentle audio chime intervals for Pocket Mode.
+- [x] **P2:** Periodic gentle audio chime intervals for Pocket Mode (Web Audio API synthetic singing bowl).
 - [ ] **P2 (Planned):** Multilingual community quest pack localizations.
 - [ ] **P2 (Planned):** Web Audio binaural nature soundscape synthesizer for seated reflections.
 
