@@ -201,36 +201,6 @@ pytest -v backend/tests
 
 ---
 
-## 🎬 60–90 Second Demonstration Script
-
-| Time | Screen | Action & Voiceover |
-| :--- | :--- | :--- |
-| **0:00–0:15** | Landing Page | *"This is OUTSIDE//OS. Built for Hacktoberfest's Touch Grass theme with one guiding principle: Your AI should get you out of the app, not keep you inside it."* Point out the live local model indicator badge. |
-| **0:15–0:30** | Adventure Builder | Click *Create an Adventure*. Configure 15 minutes, balanced energy, neighborhood, and nature observation. Click *Generate Outdoor Quest*. |
-| **0:30–0:45** | Generated Quest | *"Notice the field card. The local model generated concrete steps: find 3 leaf vascular patterns without plucking foliage, complete with safe alternatives and safety notes. It clearly displays its provenance badge."* Click *Accept Quest*. |
-| **0:45–1:05** | Expedition & Pocket Mode | *"Here is the primary innovation: The Disappearing Interface."* Click *Pocket Mode*. *"The screen dims to an ambient black OLED display telling the user: Put your phone in your pocket. The timer tracks outdoor time using timestamp diffs in the background."* |
-| **1:05–1:20** | Return & Reflect | Tap screen to awaken controls. Click *I Have Returned*. Check observed items, type a quick observation: *"Found oak leaf with deep lobed veins"*, and click *Save to Field Journal*. |
-| **1:20–1:30** | Journal & Settings | Show the saved entry in the Field Notebook. Click *Export Markdown*. Show the *Packs & Settings* page with community packs and local model controls. |
-
----
-
-## 🗺️ Project Roadmap
-
-- [x] **P0:** Responsive Landing Page with botanical topographic aesthetic.
-- [x] **P0:** Adventure Builder with time, energy, environment, and accessibility selectors.
-- [x] **P0:** Local Ollama adapter with bounded retries and JSON format enforcement.
-- [x] **P0:** Deterministic fallback generator with 18+ verified archetypes.
-- [x] **P0:** Expedition Mode with timestamp-based timer and Pocket Mode.
-- [x] **P0:** Local SQLite persistence with search, tags, and stats calculation.
-- [x] **P0:** 14 automated backend unit tests passing.
-- [x] **P1:** Community Quest Pack JSON Schema Validator and 3 Starter Packs.
-- [x] **P1:** Field Journal export to JSON and Markdown format.
-- [x] **P1:** Full user privacy controls (complete data wipe and audit).
-- [x] **P2:** Periodic gentle audio chime intervals for Pocket Mode (Web Audio API synthetic singing bowl).
-- [ ] **P2 (Planned):** Multilingual community quest pack localizations.
-- [ ] **P2 (Planned):** Web Audio binaural nature soundscape synthesizer for seated reflections.
-
----
 
 ## 🤝 Hacktoberfest Community & Contributing
 
